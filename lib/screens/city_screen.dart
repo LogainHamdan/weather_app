@@ -17,24 +17,24 @@ class CityScreen extends StatefulWidget {
 class CityScreenState extends State<CityScreen> {
   WeatherModel selectedCountry = WeatherModel();
 
-  WeatherModel _openCountryPicker() {
+  _openCountryPicker() {
     showCountryPicker(
       context: context,
       showPhoneCode: true,
 
       // textStyle: TextStyle(fontFamily: 'Spartan MB')),
-      onSelect: (Country country) async {
-        Map<String, dynamic> networkHelper = await NetworkHelper(
+      onSelect: (Country country) {
+        NetworkHelper(
                 url:
-                    'https://api.openweathermap.org/data/2.5/weather?q=${country.name}&appid={$kApiKey}')
-            .getData();
-        selectedCountry = WeatherModel().fromJsonToWeatherModel(networkHelper)!;
+                    'https://api.openweathermap.org/data/2.5/weather?q=${country.name}&appid=$kApiKey')
+            .getData()
+            .then((networkHelper) {
+          selectedCountry.fromJsonToWeatherModel(networkHelper);
 
-        setState(() {});
-        returnToMainPage(selectedCountry);
+          returnToMainPage(selectedCountry);
+        });
       },
     );
-    return selectedCountry;
   }
 
   void returnToMainPage(WeatherModel weatherModel) {
@@ -71,6 +71,7 @@ class CityScreenState extends State<CityScreen> {
               child: Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: FloatingActionButton(
+                  heroTag: '2',
                   backgroundColor: Colors.black12,
                   onPressed: () {
                     Navigator.pop(context);
@@ -88,22 +89,20 @@ class CityScreenState extends State<CityScreen> {
             ),
             Padding(
               padding: const EdgeInsets.all(15.0),
-              child: Expanded(
-                child: FloatingActionButton(
-                  onPressed: () {
-                    WeatherModel result = _openCountryPicker();
-                  },
-                  backgroundColor: Colors.blueGrey,
-                  child: const Text(
-                    'Pick a country',
-                    style: TextStyle(
-                        color: Colors.black,
-                        // fontWeight: FontWeight.bold,
-                        fontSize: 15),
-                  ),
+              child: ElevatedButton(
+                onPressed: () {
+                  _openCountryPicker();
+                },
+                child: const Text(
+                  'Pick a country',
+                  style: TextStyle(
+                      color: Colors.black,
+                      // fontWeight: FontWeight.bold,
+                      fontSize: 15),
                 ),
               ),
             ),
+
             // FloatingActionButton(
             //   onPressed: () {
             //     _selectCountryAndReturn();

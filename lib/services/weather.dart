@@ -8,7 +8,7 @@ class WeatherModel {
   int weatherId = 0;
   String name = '';
 
-  WeatherModel? fromJsonToWeatherModel(Map<String, dynamic> map) {
+  void fromJsonToWeatherModel(Map<String, dynamic> map) {
     temp = map['main']['temp'];
     weatherId = map['weather'][0]['id'];
     name = map['name'];

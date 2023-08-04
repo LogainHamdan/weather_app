@@ -103,6 +103,7 @@ class LocationScreenState extends State<LocationScreen> {
                     Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: FloatingActionButton(
+                        heroTag: '1',
                         backgroundColor: Colors.black12,
                         onPressed: () async {
                           Location location = Location();
@@ -120,6 +121,7 @@ class LocationScreenState extends State<LocationScreen> {
                     Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: FloatingActionButton(
+                        heroTag: '0',
                         onPressed: () {
                           Navigator.push(
                               context,
