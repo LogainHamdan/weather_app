@@ -1,16 +1,7 @@
 # weather_app
 
-A new Flutter project.
+![screenshot](https://github.com/LogainHamdan/weather_application/blob/8cce20eecc330c4d41a07973e820f23f699e9b3d/WhatsApp%20Image%202023-08-08%20at%2012.38.36%20PM.jpeg)
+![screenshot](https://github.com/LogainHamdan/weather_application/blob/8cce20eecc330c4d41a07973e820f23f699e9b3d/WhatsApp%20Image%202023-08-08%20at%2012.38.36%20PM%20(1).jpeg)
+![screenshot](https://github.com/LogainHamdan/weather_application/blob/8cce20eecc330c4d41a07973e820f23f699e9b3d/WhatsApp%20Image%202023-08-08%20at%2012.38.36%20PM%20(2).jpeg)
+![screenshot](https://github.com/LogainHamdan/weather_application/blob/8cce20eecc330c4d41a07973e820f23f699e9b3d/WhatsApp%20Image%202023-08-08%20at%2012.40.40%20PM.jpeg)
 
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
