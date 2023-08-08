@@ -87,19 +87,32 @@ class CityScreenState extends State<CityScreen> {
                 ),
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.all(15.0),
-              child: ElevatedButton(
-                onPressed: () {
-                  _openCountryPicker();
-                },
-                child: const Text(
-                  'Pick a country',
-                  style: TextStyle(
-                      color: Colors.black,
-                      // fontWeight: FontWeight.bold,
-                      fontSize: 15),
+            const SizedBox(
+              height: 300,
+            ),
+            ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                fixedSize: const Size(300, 80),
+                backgroundColor: const Color(0xD89E9E9E), // Text color
+                padding: const EdgeInsets.symmetric(
+                    horizontal: 20, vertical: 10), // Button padding
+                textStyle: const TextStyle(fontSize: 18), // Text style
+                shape: RoundedRectangleBorder(
+                  borderRadius:
+                      BorderRadius.circular(8), // Button border radius
                 ),
+                elevation: 4, // Elevation
+              ),
+              onPressed: () {
+                _openCountryPicker();
+              },
+              child: const Text(
+                'Pick a country',
+                style: TextStyle(
+                    color: Colors.black,
+                    fontFamily: 'Spartan MB',
+                    // fontWeight: FontWeight.bold,
+                    fontSize: 25),
               ),
             ),
 

@@ -13,6 +13,7 @@ class NetworkHelper {
       print(response.body);
       return jsonDecode(response.body);
     }
-    return Future.error("somthing wrong");
+
+    return Future.error("something wrong");
   }
 }

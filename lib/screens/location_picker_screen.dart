@@ -1,12 +1,23 @@
 // import 'package:flutter/material.dart';
-// import 'goo';
+// import 'ma';
+//
 // class LocationPickerScreen extends StatefulWidget {
 //   @override
 //   _LocationPickerScreenState createState() => _LocationPickerScreenState();
 // }
 //
 // class _LocationPickerScreenState extends State<LocationPickerScreen> {
-//   LocationResult? _pickedLocation;
+//   LatLng? selectedPosition;
+//
+//   void _onMapCreated(GoogleMapController controller) {
+//     // Use this method if you need to interact with the map controller
+//   }
+//
+//   void _selectLocation(LatLng location) {
+//     setState(() {
+//       selectedPosition = location;
+//     });
+//   }
 //
 //   @override
 //   Widget build(BuildContext context) {
@@ -14,32 +25,28 @@
 //       appBar: AppBar(
 //         title: Text('Location Picker'),
 //       ),
-//       body: Center(
-//         child: ElevatedButton(
-//           onPressed: () async {
-//             LocationResult? result = await Navigator.of(context).push(
-//               MaterialPageRoute(
-//                 builder: (context) => PlacePicker(
-//                   apiKey: 'YOUR_GOOGLE_MAPS_API_KEY',
-//                   onPlacePicked: (result) {
-//                     setState(() {
-//                       _pickedLocation = result;
-//                     });
-//                     Navigator.of(context).pop();
-//                   },
-//                   initialPosition: LatLng(37.7749, -122.4194),
-//                   useCurrentLocation: true,
-//                 ),
-//               ),
-//             );
-//             if (result != null) {
-//               setState(() {
-//                 _pickedLocation = result;
-//               });
-//             }
-//           },
-//           child: Text('Pick a Location'),
+//       body: GoogleMap(
+//         onMapCreated: _onMapCreated,
+//         initialCameraPosition: CameraPosition(
+//           target: LatLng(0, 0),
+//           zoom: 13.0,
 //         ),
+//         onTap: _selectLocation,
+//         markers: selectedPosition != null
+//             ? {
+//                 Marker(
+//                   markerId: MarkerId('selectedLocation'),
+//                   position: selectedPosition!,
+//                 ),
+//               }
+//             : {},
+//       ),
+//       floatingActionButton: FloatingActionButton.extended(
+//         onPressed: () {
+//           Navigator.pop(context, selectedPosition);
+//         },
+//         label: Text('Select Location'),
+//         icon: Icon(Icons.location_on),
 //       ),
 //     );
 //   }
